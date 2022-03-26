@@ -1,0 +1,22 @@
+{
+  "name": "fourth-responsive-template-with-html-and-sass",
+  "version": "1.0.0",
+  "description": "Fourth-Responsive-Template-With-Html-And-Sass",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass --recursive --watch  --source-map true --source-map-contents true  scss/ --output upload/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youssefbaba/Fourth-Responsive-Template-With-Html-And-Sass.git"
+  },
+  "author": "youssef baba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youssefbaba/Fourth-Responsive-Template-With-Html-And-Sass/issues"
+  },
+  "homepage": "https://github.com/youssefbaba/Fourth-Responsive-Template-With-Html-And-Sass#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}
