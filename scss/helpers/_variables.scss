@@ -1,0 +1,59 @@
+$color-primary:"color-primary";
+$color-primary-m:"color-primary-m";
+$color-secondary:"color-secondary";
+$color-secondary-m:"color-secondary-m";
+$color-tertiary:"color-tertiary";
+$color-tertiary-m:"color-tertiary-m";
+$color-quaternary:"color-quaternary";
+$color-quaternary-m:"color-quaternary-m";
+$color-quinary:"color-quinary";
+$color-quinary-m:"color-quinary-m";
+$break-point-small:"(min-width:576px)";
+$break-point-medium:"(min-width: 768px)";
+$break-point-large:"(min-width: 992px)";
+$break-point-x-large:"(min-width: 1200px)";
+$break-point-x-x-large:"(min-width: 1400px)";
+$max-break-point-small:"(max-width: 575px)";
+$max-break-point-medium:"(max-width: 767px)";
+$max-break-point-x-large:"(max-width: 1199px)";
+
+// Map Of maps
+$themes: (light: (color-primary:$primary-light,
+        color-primary-m:$primary-m-light,
+        color-secondary:$secondary-light,
+        color-secondary-m:$secondary-m-light,
+        color-tertiary:$tertiary-light,
+        color-tertiary-m:$tertiary-m-light,
+        color-quaternary:$quaternary-light,
+        color-quaternary-m:$quaternary-m-light,
+        color-quinary:$quinary-light,
+        color-quinary-m:$quinary-m-light,
+    ),
+    dark: (color-primary:$primary-dark,
+        color-primary-m: $primary-m-dark,
+        color-secondary:$secondary-dark,
+        color-secondary-m: $secondary-m-dark,
+        color-tertiary: $tertiary-dark,
+        color-tertiary-m: $tertiary-m-dark,
+        color-quaternary: $quaternary-dark,
+        color-quaternary-m: $quaternary-m-dark,
+        color-quinary: $quinary-dark,
+        color-quinary-m:$quinary-m-dark,
+    ),
+);
+
+// Font Weight 
+$font-weights:("font-weight-thin":100,
+    "font-weight-light":300,
+    "font-weight-regular":400,
+    "font-weight-medium":500,
+    "font-weight-bold":700,
+    "font-weight-black":900,
+);
+// Font size
+$font-sizes:("font-size-small":calc(1.5rem + 0.5vw),
+    "font-size-regular":calc(1.5rem + 1.5vw),
+    "font-size-medium":calc(1.5rem + 2vw),
+    "font-size-large":calc(1.5rem + 5vw),
+    "font-size-xlarge":calc(2.5rem + 5vw),
+)

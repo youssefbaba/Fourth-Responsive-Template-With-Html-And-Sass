@@ -1,0 +1,29 @@
+// Import Colors
+@import "../scss/helpers/colors";
+// Import Variables
+@import "../scss/helpers/variables";
+// Import Functions
+@import "../scss/helpers/functions";
+// Import Mixins
+@import "../scss/helpers/mixins";
+// Import Placeholder 
+@import "../scss/helpers/placeholder";
+
+
+
+
+// Import Reset
+@import "../scss/base/reset";
+// Import Base
+@import "../scss/base/base";
+
+
+
+// Import Grids
+@import "../scss/layout/grid";
+// Import  Header Section
+@import '../scss/layout/header';
+// Import Show Case Section
+@import '../scss/layout/showcase';
+// Import Motto Section
+@import '../scss/layout/motto';

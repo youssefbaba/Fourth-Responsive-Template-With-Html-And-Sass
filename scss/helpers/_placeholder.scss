@@ -1,0 +1,59 @@
+// Background Propertie 
+%bg {
+    background: {
+        repeat: no-repeat;
+        position: center center;
+        size: cover;
+    }
+}
+
+// Section Padding
+%sec-padding {
+    padding: 6vh 0;
+}
+
+// Style For  Section Heading (h2)
+%sec-heading {
+    font: {
+        size: getFontSize("font-size-regular");
+        weight: getFontWeight("font-weight-light");
+    }
+
+    letter-spacing: 0.2rem;
+
+    @include themed() {
+        color: getColor("color-quinary");
+    }
+
+}
+
+// Styling For Section Paragraph
+%sec-para {
+    font: {
+        size: getFontSize("font-size-small");
+        family: 'Balsamiq Sans', cursive;
+    }
+
+    letter-spacing: 0.2rem;
+
+    @include themed() {
+        color: getColor("color-quinary");
+    }
+
+}
+
+// Style For  Section Heading (h3)
+%sec-h3 {
+    font-size: getFontSize("font-size-small");
+
+    @include themed() {
+        color: getColor("color-quinary");
+    }
+}
+
+// Style For  Section Heading (h4)
+%sec-h4 {
+    @include themed() {
+        color: getColor("color-quinary");
+    }
+}

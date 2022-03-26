@@ -1,0 +1,292 @@
+// Start Header
+.header {
+
+    // in the  min-width:768px height of header has will be equal to zero  
+    @include themed() {
+        background-color: getColor("color-primary");
+    }
+
+    &.open {
+        nav {
+            transform: rotateY(0);
+        }
+
+        .header-menu {
+            .medium {
+                background-color: transparent;
+            }
+
+            .top,
+            .bottom {
+                top: 0;
+            }
+
+            .top {
+                transform: rotate(45deg);
+            }
+
+            .bottom {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &-menu {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        width: 5rem;
+        height: 5rem;
+        cursor: pointer;
+        z-index: 20;
+
+        @include medium {
+            display: none;
+        }
+
+        div {
+            position: absolute;
+            width: 4rem;
+            height: 0.3rem;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            @include transition(all 0.5s ease-in-out);
+
+            @include themed() {
+                background-color: getColor("color-quinary");
+            }
+        }
+
+        .top {
+            top: -2rem;
+        }
+
+        .bottom {
+            top: 2rem;
+        }
+    }
+
+    &-nav {
+        border: 1px solid brown;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 25rem;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: 20;
+        text-transform: uppercase;
+        overflow: hidden;
+
+        @include themed() {
+            background-color: getColor("color-primary");
+        }
+
+        @include transition(transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19));
+        transform: perspective(70rem) rotateY(180deg);
+        transform-origin: 0% 50%;
+
+        @include medium {
+            position: relative;
+            width: initial;
+            height: 7rem;
+            line-height: 7rem;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            transform: none;
+            transition: none;
+        }
+
+        &-logo {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+
+            img {
+                height: 5rem;
+                width: 5rem;
+            }
+        }
+
+        &-links {
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            text-align: center;
+
+            @include medium {
+                flex-direction: row;
+                justify-content: initial;
+                align-items: center;
+                height: initial;
+            }
+
+            &-item {
+                a {
+
+                    &:link,
+                    &:visited {
+                        position: relative;
+                        display: block;
+                        padding: 2rem;
+                        font-size: 1.2rem;
+                        transform-style: preserve-3d;
+                        transform-origin: 0% 50%;
+                        @include transition(transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19));
+
+                        @include medium {
+                            padding: 0 1rem;
+                            margin-right: 0.5vw;
+                            transform-origin: 50% 0%;
+                            font-size: getFontSize("font-size-small");
+                        }
+
+                        @include large {
+                            margin-right: 1.5vw;
+                        }
+
+                        @include xLarge {
+                            font-size: 1.7rem;
+                        }
+
+                        &:after {
+                            content: attr(data-text);
+                            position: absolute;
+                            top: 0;
+                            left: 100%;
+                            width: 100%;
+                            height: 100%;
+                            padding: inherit;
+                            transform: rotateY(-90deg);
+                            transform-origin: 0% 50%;
+
+                            @include themed() {
+                                background-color: getColor("color-tertiary");
+                            }
+
+                            @include medium {
+                                top: 100%;
+                                left: 0;
+                                transform-origin: 50% 0%;
+                                transform: rotateX(-90deg);
+                            }
+                        }
+                    }
+
+                    &:hover,
+                    &:active {
+                        transform: rotateY(90deg);
+
+                        @include medium {
+                            transform: rotateX(90deg);
+                        }
+                    }
+                }
+
+                &:nth-child(odd) {
+                    animation: downwards 1s forwards;
+                }
+
+                &:nth-child(even) {
+                    animation: upwards 1s forwards;
+                }
+            }
+
+            &-toggle-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                input[type="checkbox"] {
+                    position: relative;
+                    width: 6rem;
+                    height: 3rem;
+                    cursor: pointer;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+
+                    @include themed() {
+                        background-color: getColor("color-quaternary");
+                    }
+
+                    border-radius: 2.5rem;
+                    box-shadow: inset 0 0 0.6rem 0.1rem rgb(158, 157, 157);
+
+                    &:checked {
+
+                        &::after,
+                        &::before {
+                            transform: translate(-50%, -50%);
+                        }
+
+                        &::before {
+                            left: 50%;
+                        }
+
+                        &::after {
+                            right: calc(50% - 1.5rem);
+                        }
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        border-radius: 50%;
+                        box-shadow: 0 0.1rem 0.3rem 0.1rem rgba(128, 128, 128, 0.35);
+                        @include transition(all 0.5s ease-in-out);
+
+                        @include themed() {
+                            background-color: getColor("color-quinary");
+                        }
+                    }
+
+                    &::before {
+                        left: 0;
+                    }
+
+                    &::after {
+                        right: 0;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@include keyframes(upwards) {
+    0% {
+        transform: translateY(100%);
+        @include opacity(0)
+    }
+
+    100% {
+        transform: translateY(0);
+        @include opacity(1)
+    }
+}
+
+@include keyframes(downwards) {
+    0% {
+        transform: translateY(-100%);
+        @include opacity(0)
+    }
+
+    100% {
+        transform: translateY(0);
+        @include opacity(1)
+    }
+}

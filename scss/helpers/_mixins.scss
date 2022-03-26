@@ -1,0 +1,105 @@
+@mixin themed() {
+
+    @each $theme,
+    $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key,
+            $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+// Media Queries Mixin
+@mixin small {
+    @media #{$break-point-small} {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media #{$break-point-medium} {
+        @content;
+    }
+}
+
+@mixin large {
+    @media #{$break-point-large} {
+        @content;
+    }
+}
+
+@mixin xLarge {
+    @media #{$break-point-x-large} {
+        @content;
+    }
+}
+
+@mixin xxLarge {
+    @media #{$break-point-x-x-large} {
+        @content;
+    }
+}
+
+@mixin maxSmall {
+    @media #{$max-break-point-small} {
+        @content;
+    }
+}
+
+@mixin maxMedium {
+    @media #{$max-break-point-medium} {
+        @content;
+    }
+}
+
+@mixin maxXLarge {
+    @media #{$max-break-point-x-large} {
+        @content;
+    }
+}
+
+
+// Opacity Mixin
+@mixin opacity($value) {
+    $IEValue: $value*100;
+    filter: alpha(opacity=$IEValue);
+    opacity: $value;
+}
+
+// Transition Mixin 
+@mixin transition($values) {
+    -webkit-transition: $values;
+    transition: $values;
+}
+
+// Animation Mixin 
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Overlay Mixin
+@mixin overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

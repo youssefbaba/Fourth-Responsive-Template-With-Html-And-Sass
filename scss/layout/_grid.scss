@@ -1,0 +1,32 @@
+// Start Grids
+.container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+
+    margin: auto {
+        top: 0;
+        bottom: 0;
+    }
+
+    @include small {
+        width: 540px;
+    }
+
+    @include medium {
+        width: 720px;
+    }
+
+    @include large {
+        width: 960px;
+    }
+
+    @include xLarge {
+        width: 1200px;
+    }
+
+    @include xxLarge {
+        width: 1320px;
+    }
+}
+
+// End Grids

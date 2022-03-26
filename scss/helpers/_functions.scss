@@ -1,0 +1,16 @@
+// Start Function 
+
+
+@function getColor($key) {
+    @return map-get($theme-map, $key);
+}
+
+@function getFontWeight($font-weight-style) {
+    @return map-get($font-weights, $font-weight-style);
+}
+
+@function getFontSize($font-size-style) {
+    @return map-get($font-sizes, $font-size-style);
+}
+
+// End  Function 

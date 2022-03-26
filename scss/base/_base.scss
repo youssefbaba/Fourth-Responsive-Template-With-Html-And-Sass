@@ -1,0 +1,83 @@
+:root {
+    // Font size  of root elment is equal 1rem = 10px  => 10px  = (16px * 62.5) / 100
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.9;
+
+    // Fall Back Background
+    @include themed() {
+        background-color: getColor("color-primary");
+    }
+}
+
+html.transition {
+    @include transition(all 0.5s ease-in-out !important);
+
+    *,
+    *::before,
+    *::after {
+        @include transition(all 0.5s ease-in-out !important);
+    }
+}
+
+a {
+
+    &:link,
+    &:visited {
+        @include themed() {
+            color: getColor("color-quinary");
+        }
+
+        font-size:getFontSize("font-size-small");
+        letter-spacing: 0.2rem;
+        font-weight: getFontWeight("font-weight-light");
+    }
+}
+
+i {
+    @include themed() {
+        color: getColor("color-primary");
+    }
+
+    font-size:getFontSize("font-size-medium");
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+
+    @include themed() {
+        background-color: getColor("color-tertiary");
+    }
+
+    @include opacity(0);
+    visibility: hidden;
+    z-index: 10;
+    @include transition(all 0.5s ease-in-out);
+
+    &.open {
+        @include opacity(0.6);
+        visibility: visible;
+
+        @include medium {
+            @include opacity(0);
+            visibility: hidden;
+        }
+    }
+}
+
+::selection {
+    @include themed() {
+        background-color: getColor("color-primary");
+    }
+}
+
+::-moz-selection {
+    @include themed() {
+        background-color: getColor("color-primary");
+    }
+}
